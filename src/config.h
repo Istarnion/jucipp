@@ -76,6 +76,8 @@ public:
     bool smart_brackets;
     bool smart_inserts;
     
+    bool manual_auto_complete;
+    
     bool show_map;
     std::string map_font_size;
     bool show_git_diff;

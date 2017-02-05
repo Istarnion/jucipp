@@ -98,6 +98,25 @@ void Application::on_activate() {
   
   if(!last_current_file.empty())
     Notebook::get().open(last_current_file);
+  
+  auto config = Config::get();
+  if(config.source.manual_auto_complete) {
+    std::string action = "do_auto_complete";
+    auto completion_cmd=Config::get().menu.keys[action];
+    if(completion_cmd.size() > 0) {
+      auto g_application=g_application_get_default();
+      auto gio_application=Glib::wrap(g_application, true);
+      auto application=Glib::RefPtr<Gtk::Application>::cast_static(gio_application);
+      application->add_action("do_auto_complete", [this](){
+        auto view = dynamic_cast<Source::ClangViewAutocomplete*>(Notebook::get().get_current_view());
+        if (view) {
+          view->do_manual_auto_complete();
+        }
+      });
+      
+      application->set_accel_for_action("app."+action, completion_cmd);
+    }
+  }
 }
 
 void Application::on_startup() {

@@ -47,6 +47,8 @@ R"RAW(
         "smart_brackets": true,
         "smart_inserts_comment": "When for instance inserting (, () gets inserted. Applies to: (), [], \", '. Also enables pressing ; inside an expression before a final ) to insert ; at the end of line, and deletions of empty insertions",
         "smart_inserts": false,
+        "manual_auto_complete_comment": "Instead of having the auto complete fire automatically, you can fire it using a keybinding, or just not at all. See keybinding 'do_auto_complete'",
+        "manual_auto_complete": false,
         "show_map": true,
         "map_font_size": "1",
         "show_git_diff": true,
@@ -150,7 +152,8 @@ R"RAW(
 R"RAW(
         "close_tab": "<primary>w",
         "window_toggle_split": "",
-        "window_clear_terminal": ""
+        "window_clear_terminal": "",
+        "do_auto_complete": ""
     },
     "project": {
         "default_build_path_comment": "Use <project_directory_name> to insert the project top level directory name",

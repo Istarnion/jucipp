@@ -70,6 +70,7 @@ namespace Source {
     };
     
     ClangViewAutocomplete(const boost::filesystem::path &file_path, Glib::RefPtr<Gsv::Language> language);
+    void do_manual_auto_complete();
   protected:
     std::atomic<AutocompleteState> autocomplete_state;
     std::thread autocomplete_thread;

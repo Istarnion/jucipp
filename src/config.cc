@@ -202,6 +202,8 @@ void Config::get_source() {
   if(source.smart_inserts)
     source.smart_brackets=true;
 
+  source.manual_auto_complete=source_json.get<bool>("manual_auto_complete");
+
   source.show_map = source_json.get<bool>("show_map");
   source.map_font_size = source_json.get<std::string>("map_font_size");
   
